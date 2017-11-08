@@ -21,10 +21,11 @@ class Quote: NSObject {
         quoteAuthor = ""
     }
     
-    func setNewQuote(completion: (_ didFinish: Bool) -> Void ) {
+    func setNewQuote(completion: @escaping (_ didFinish: Bool) -> Void ) {
         self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
             self.quoteText = quoteInfo?.quoteText ?? ""
             self.quoteAuthor = quoteInfo?.quoteAuthor ?? ""
+            completion(true)
         }
     }
     

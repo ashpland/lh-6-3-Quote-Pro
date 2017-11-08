@@ -10,7 +10,7 @@ import UIKit
 
 class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
   
-    let apiURL = URL(string: "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+    let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
     
     var jsonDownloader: JSONDownloader
     
