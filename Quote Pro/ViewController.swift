@@ -13,6 +13,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        let testQuote = Quote()
+        
+        testQuote.setNewQuote { (newQuoteSet) in
+            if (newQuoteSet) {
+                print("Quote: \(testQuote.quoteText) \nAuthor: \(testQuote.quoteAuthor)")
+            }
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -9,17 +9,19 @@
 import UIKit
 
 class Quote: NSObject {
-    var quoteText : String?
-    var quoteAuthor : String?
+    var quoteText : String
+    var quoteAuthor : String
     var photo : Photo?
     
     var quoteGetterDelegate : QuoteGetterProtocol
     
     override init() {
         quoteGetterDelegate = ForismaticQuoteGetter()
+        quoteText = ""
+        quoteAuthor = ""
     }
     
-    func setNewQuote() {
+    func setNewQuote(completion: (_ didFinish: Bool) -> Void ) {
         self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
             self.quoteText = quoteInfo?.quoteText ?? ""
             self.quoteAuthor = quoteInfo?.quoteAuthor ?? ""
