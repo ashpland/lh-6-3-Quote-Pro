@@ -34,6 +34,6 @@ protocol QuoteGetterProtocol {
 }
 
 struct QuoteInfo {
-    var quoteText: String
-    var quoteAuthor: String
+    var quoteText: String?
+    var quoteAuthor: String?
 }

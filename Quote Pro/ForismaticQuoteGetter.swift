@@ -27,13 +27,8 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
                     
                 case .success(let downloadResult):
                     if let download = downloadResult as? Data {
-                        
-                        
-                        
-                        
-                        
-                        
-                        print(download)
+                        let newQuote = self.getQuoteFromJSON(rawJSON: download)
+                        completion(newQuote)
                     }
                     else {
                         assertionFailure("Download result isn't Data")
@@ -47,7 +42,26 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
             })
     }
     
-//    private func 
+    private func getQuoteFromJSON(rawJSON: Data) -> QuoteInfo? {
+        
+        var newQuote = QuoteInfo()
+        
+        do {
+            if let json = try JSONSerialization.jsonObject(with: rawJSON) as? [String: Any] {
+                if let quoteText = json["quoteText"] as? String {
+                    newQuote.quoteText = quoteText
+                }
+                if let quoteAuthor = json["quoteAuthor"] as? String {
+                    newQuote.quoteAuthor = quoteAuthor
+                }
+            }
+        } catch {
+            print("Error deserializing JSON: \(error)")
+            return nil
+        }
+        
+        return newQuote
+    }
     
     
     
