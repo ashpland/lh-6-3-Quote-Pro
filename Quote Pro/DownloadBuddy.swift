@@ -12,19 +12,30 @@ import UIKit
 
 class DownloadBuddy: NSObject, JSONDownloader, FileDownloader {
     
+    
+    
     let defaultSession = URLSession(configuration: .default)
     
     var dataTask: URLSessionDataTask?
     var errorMessage: String?
 
-    func downloadJSONAt(url: URL, completion: (DownloadResponses<Any>) -> Void) {
+    func downloadJSONAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
         
         
         
+        dataTask = defaultSession.dataTask(with: url) {
+            data, response, error in defer { self.dataTask = nil }
+            
+            if let error = error {
+                completion(DownloadResponses.failure(error))
+            } else if let data = data,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200 {
+                completion(DownloadResponses.success(data))
+            }
+        }
         
-        
-        
-        completion(DownloadResponses.success("Nice"))
+        dataTask?.resume()
     }
     
     

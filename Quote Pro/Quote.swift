@@ -32,7 +32,7 @@ class Quote: NSObject {
 }
 
 protocol QuoteGetterProtocol {    
-    func fetchQuote(completion: ((_ quoteInfo: QuoteInfo?) -> Void))
+    func fetchQuote(completion: @escaping ((_ quoteInfo: QuoteInfo?) -> Void))
 }
 
 struct QuoteInfo {

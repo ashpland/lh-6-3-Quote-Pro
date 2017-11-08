@@ -18,7 +18,7 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
         jsonDownloader = DownloadBuddy()
     }
     
-    func fetchQuote(completion: ((QuoteInfo?) -> Void)) {
+    func fetchQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
         self.jsonDownloader
             .downloadJSONAt(url: apiURL!, completion:{
                 (downloadResponse) -> Void in

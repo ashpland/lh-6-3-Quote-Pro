@@ -9,7 +9,7 @@
 import Foundation
 
 protocol JSONDownloader {
-    func downloadJSONAt(url: URL, completion: (DownloadResponses<Any>) -> Void)
+    func downloadJSONAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
 }
 
 protocol FileDownloader {
