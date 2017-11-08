@@ -12,6 +12,11 @@
 		49130EF21FB392F300AF4691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF01FB392F300AF4691 /* Main.storyboard */; };
 		49130EF41FB392F300AF4691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF31FB392F300AF4691 /* Assets.xcassets */; };
 		49130EF71FB392F300AF4691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF51FB392F300AF4691 /* LaunchScreen.storyboard */; };
+		49130EFF1FB39B0500AF4691 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EFE1FB39B0500AF4691 /* Quote.swift */; };
+		49130F011FB39B7500AF4691 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F001FB39B7500AF4691 /* Photo.swift */; };
+		49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */; };
+		49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F061FB39DC900AF4691 /* DownloadProtocols.swift */; };
+		49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		49130EF31FB392F300AF4691 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49130EF61FB392F300AF4691 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49130EF81FB392F300AF4691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49130EFE1FB39B0500AF4691 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		49130F001FB39B7500AF4691 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForismaticQuoteGetter.swift; sourceTree = "<group>"; };
+		49130F061FB39DC900AF4691 /* DownloadProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProtocols.swift; sourceTree = "<group>"; };
+		49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBuddy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				49130EEC1FB392F300AF4691 /* AppDelegate.swift */,
+				49130EFE1FB39B0500AF4691 /* Quote.swift */,
+				49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */,
+				49130F061FB39DC900AF4691 /* DownloadProtocols.swift */,
+				49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */,
+				49130F001FB39B7500AF4691 /* Photo.swift */,
 				49130EEE1FB392F300AF4691 /* ViewController.swift */,
 				49130EF01FB392F300AF4691 /* Main.storyboard */,
 				49130EF31FB392F300AF4691 /* Assets.xcassets */,
@@ -136,7 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49130F011FB39B7500AF4691 /* Photo.swift in Sources */,
+				49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */,
 				49130EEF1FB392F300AF4691 /* ViewController.swift in Sources */,
+				49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */,
+				49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */,
+				49130EFF1FB39B0500AF4691 /* Quote.swift in Sources */,
 				49130EED1FB392F300AF4691 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
