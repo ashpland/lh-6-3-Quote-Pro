@@ -13,7 +13,7 @@ protocol JSONDownloader {
 }
 
 protocol FileDownloader {
-    
+        func downloadFileAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
 }
 
 
