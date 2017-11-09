@@ -16,7 +16,7 @@ class QuoteListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.tableView.rowHeight = 200
+        self.tableView.rowHeight = self.tableView.bounds.size.height / 2.5
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -59,10 +59,23 @@ class QuoteListViewController: UIViewController, UITableViewDelegate, UITableVie
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            quoteArray.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.isSelected = false
+        
+        let activityViewController = UIActivityViewController(activityItems: [quoteArray[indexPath.row].combinedImage!], applicationActivities: nil)
+        navigationController?.present(activityViewController, animated: true)
+
+        
+        
+    }
+    
     
 
     

@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="-1290" y="32"/>
         </scene>
-        <!--Quote List View Controller-->
+        <!--Great Quotes-->
         <scene sceneID="eLl-z6-u9z">
             <objects>
                 <viewController id="KUS-eP-V2y" customClass="QuoteListViewController" customModule="Quote_Pro" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="834-lc-y7C">
-                                                    <rect key="frame" x="139" y="62" width="260" height="127"/>
+                                                    <rect key="frame" x="139" y="62.000000000000007" width="260" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -122,7 +122,7 @@
                                                 <constraint firstItem="A85-mY-DXL" firstAttribute="top" secondItem="hsl-j1-mAI" secondAttribute="top" constant="11" id="ZB6-7T-RIw"/>
                                                 <constraint firstItem="A85-mY-DXL" firstAttribute="leading" secondItem="Zfp-Cb-cbb" secondAttribute="trailing" constant="7.3333333333333428" id="ZdY-8b-jhZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="A85-mY-DXL" secondAttribute="trailing" constant="15" id="b3r-yA-rQp"/>
-                                                <constraint firstAttribute="bottom" secondItem="834-lc-y7C" secondAttribute="bottom" constant="10.666666666666657" id="bbf-pF-u3q"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="834-lc-y7C" secondAttribute="bottom" constant="10.666666666666657" id="bbf-pF-u3q"/>
                                                 <constraint firstItem="834-lc-y7C" firstAttribute="leading" secondItem="Zfp-Cb-cbb" secondAttribute="trailing" constant="7.3333333333333428" id="dOH-xy-36r"/>
                                                 <constraint firstItem="834-lc-y7C" firstAttribute="top" secondItem="A85-mY-DXL" secondAttribute="bottom" constant="8" id="gGf-cb-oU8"/>
                                                 <constraint firstAttribute="trailing" secondItem="834-lc-y7C" secondAttribute="trailing" constant="15" id="lWD-25-Azl"/>
@@ -151,7 +151,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DFh-FN-AbX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rS9-4h-tsl">
+                    <navigationItem key="navigationItem" title="Great Quotes" id="rS9-4h-tsl">
                         <barButtonItem key="backBarButtonItem" title="Save" id="4le-9q-f23"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="87c-PY-yrc">
                             <connections>
