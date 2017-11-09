@@ -10,27 +10,41 @@ import UIKit
 
 class QuoteBuilderViewController: UIViewController {
 
+    @IBOutlet weak var quoteView: QuoteView!
+    let thisQuote = Quote()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         
         
-        let testQuote = Quote()
+//        thisQuote.setNewQuoteAndPhoto {
+//            <#code#>
+//        }
         
-        testQuote.setNewQuoteAndPhoto {
-            print("Quote: \(testQuote.quoteText) \nAuthor: \(testQuote.quoteAuthor)")
-        }
+        
+        
         
         
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    private func updateQuoteView(_:QuoteView, withQuote: Quote) {
+        
     }
-
+    
+    
+    // MARK: Actions
+    
+    @IBAction func newPhoto(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func newQuote(_ sender: UIBarButtonItem) {
+    }
+    
 
 }
 

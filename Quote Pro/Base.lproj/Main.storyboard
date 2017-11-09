@@ -22,8 +22,16 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="StP-hH-Ehf"/>
-                                    <barButtonItem title="New Quote" id="9HZ-2E-jtg"/>
-                                    <barButtonItem title="New Photo" id="oc3-lj-iSp"/>
+                                    <barButtonItem title="New Quote" id="9HZ-2E-jtg">
+                                        <connections>
+                                            <action selector="newQuote:" destination="BYZ-38-t0r" id="a6i-TF-rez"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="New Photo" id="oc3-lj-iSp">
+                                        <connections>
+                                            <action selector="newPhoto:" destination="BYZ-38-t0r" id="6P8-WC-8sY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="47f-qC-fLm"/>
                                 </items>
                             </toolbar>
@@ -45,6 +53,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="AMc-aK-7D8"/>
+                    <connections>
+                        <outlet property="quoteView" destination="HXD-OI-v8Q" id="hfo-yT-OeH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

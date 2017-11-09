@@ -12,6 +12,9 @@ import UIKit
 
 class QuoteView: UIView {
 
+    @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     // MARK: - Private properties
     private var contentView: UIView!
