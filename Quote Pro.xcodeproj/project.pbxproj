@@ -17,6 +17,7 @@
 		49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */; };
 		49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F061FB39DC900AF4691 /* DownloadProtocols.swift */; };
 		49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */; };
+		49130F0B1FB3C0B800AF4691 /* LoremPixelImageGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForismaticQuoteGetter.swift; sourceTree = "<group>"; };
 		49130F061FB39DC900AF4691 /* DownloadProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProtocols.swift; sourceTree = "<group>"; };
 		49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBuddy.swift; sourceTree = "<group>"; };
+		49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremPixelImageGetter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +68,11 @@
 			children = (
 				49130EEC1FB392F300AF4691 /* AppDelegate.swift */,
 				49130EFE1FB39B0500AF4691 /* Quote.swift */,
+				49130F001FB39B7500AF4691 /* Photo.swift */,
 				49130F021FB39CC500AF4691 /* ForismaticQuoteGetter.swift */,
+				49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */,
 				49130F061FB39DC900AF4691 /* DownloadProtocols.swift */,
 				49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */,
-				49130F001FB39B7500AF4691 /* Photo.swift */,
 				49130EEE1FB392F300AF4691 /* ViewController.swift */,
 				49130EF01FB392F300AF4691 /* Main.storyboard */,
 				49130EF31FB392F300AF4691 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				49130EEF1FB392F300AF4691 /* ViewController.swift in Sources */,
 				49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */,
 				49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */,
+				49130F0B1FB3C0B800AF4691 /* LoremPixelImageGetter.swift in Sources */,
 				49130EFF1FB39B0500AF4691 /* Quote.swift in Sources */,
 				49130EED1FB392F300AF4691 /* AppDelegate.swift in Sources */,
 			);

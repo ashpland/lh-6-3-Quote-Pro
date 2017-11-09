@@ -10,24 +10,23 @@ import UIKit
 
 
 
-class DownloadBuddy: NSObject, JSONDownloader, FileDownloader {
-    
-    
+class DownloadBuddy: NSObject, DataDownloader {
+
+    static let sharedInstance = DownloadBuddy();
     
     let defaultSession = URLSession(configuration: .default)
     
     var dataTask: URLSessionDataTask?
+    var downloadTask: URLSessionDownloadTask?
     var errorMessage: String?
 
-    func downloadJSONAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
-        
-        
-        
+    func downloadDataAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
+
         dataTask = defaultSession.dataTask(with: url) {
             data, response, error in defer { self.dataTask = nil }
             
             if let error = error {
-                completion(DownloadResponses.failure(error))
+                completion(DownloadResponses.failure(error.localizedDescription))
             } else if let data = data,
                 let response = response as? HTTPURLResponse,
                 response.statusCode == 200 {
@@ -37,35 +36,4 @@ class DownloadBuddy: NSObject, JSONDownloader, FileDownloader {
         
         dataTask?.resume()
     }
-    
-    
-    
-//    func downloadJSONAt(url: URL, completion: (Data, Error) -> Void) {
-//
-//        dataTask = defaultSession.dataTask(with: url) {
-//            data, response, error in defer { self.dataTask = nil }
-//
-//
-//            if let error = error {
-//                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-//            } else if let data = data,
-//                let response = response as? HTTPURLResponse,
-//                response.statusCode == 200 {
-//                self.updateSearchResults(data)
-//                // 6
-//                DispatchQueue.main.async {
-//                    completion(<#T##Data#>, <#T##Error#>)
-//
-//                }
-//            }
-//        }
-//        // 7
-//        dataTask?.resume()
-//
-//
-//
-//
-//    }
-    
-    
 }

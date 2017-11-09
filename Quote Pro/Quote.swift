@@ -11,22 +11,46 @@ import UIKit
 class Quote: NSObject {
     var quoteText : String
     var quoteAuthor : String
-    var photo : Photo?
+    var photo : Photo
     
     var quoteGetterDelegate : QuoteGetterProtocol
     
     override init() {
-        quoteGetterDelegate = ForismaticQuoteGetter()
+        quoteGetterDelegate = ForismaticQuoteGetter.sharedInstance
         quoteText = ""
         quoteAuthor = ""
+        photo = Photo()
     }
     
-    func setNewQuote(completion: @escaping (_ didFinish: Bool) -> Void ) {
-        self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
-            self.quoteText = quoteInfo?.quoteText ?? ""
-            self.quoteAuthor = quoteInfo?.quoteAuthor ?? ""
-            completion(true)
+    func setNewQuoteAndPhoto(completion: @escaping () -> Void) {
+        self.setNewQuote {
+            self.setNewPhoto {
+                completion()
+            }
         }
+    }
+    
+    func setNewQuote(completion: @escaping () -> Void ) {
+        self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
+            if let quoteInfo = quoteInfo {
+                self.quoteText = quoteInfo.quoteText
+                self.quoteAuthor = quoteInfo.quoteAuthor ?? ""
+                completion()
+            }
+            
+            // If quotes are failing, put error handling in here
+            else {
+                self.setNewQuote {
+                    completion()
+                }
+            }
+        }
+    }
+    
+    func setNewPhoto(completion: @escaping () -> Void) {
+        self.photo.setNewRandomImage(completion: {
+            completion()
+        })
     }
     
     
@@ -37,6 +61,11 @@ protocol QuoteGetterProtocol {
 }
 
 struct QuoteInfo {
-    var quoteText: String?
+    var quoteText: String
     var quoteAuthor: String?
+    
+    init(text: String, author: String?) {
+        self.quoteText = text
+        self.quoteAuthor = author ?? ""
+    }
 }
