@@ -8,42 +8,43 @@
 
 import UIKit
 
-class QuoteBuilderViewController: UIViewController, UINavigationControllerDelegate {
+class QuoteBuilderViewController: UIViewController  {
 
     @IBOutlet weak var quoteView: QuoteView!
-    let thisQuote = Quote()
+    var thisQuote : Quote!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.delegate = self
-        
+ 
+        if (thisQuote == nil) {
+            thisQuote = Quote()
+        }
         
         thisQuote.setNewQuoteAndPhoto {
             self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
         }
-        
-        
-        
-        
-        
-        
     }
-    
-    
+   
     private func updateQuoteView(quoteView:QuoteView, quote: Quote) {
         DispatchQueue.main.async {
             quoteView.quoteLabel.text = quote.quoteText
             quoteView.authorLabel.text = quote.quoteAuthor
             quoteView.photoImageView.image = quote.photo.image
+            self.thisQuote.combinedImage = self.snapshot(of: quoteView)
         }
     }
     
-    
-    
-    
+    private func snapshot(of view:UIView) -> UIImage? {
+        UIGraphicsBeginImageContext(view.bounds.size)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return snapshot
+    }
+
     // MARK: Actions
     
     @IBAction func newPhoto(_ sender: UIBarButtonItem) {
@@ -58,20 +59,8 @@ class QuoteBuilderViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
-    // Back button pressed
-    override func willMove(toParentViewController parent: UIViewController?) {
-        thisQuote.combinedImage = snapshot(of: quoteView)
-    }
-    
-    private func snapshot(of view:UIView) -> UIImage? {
-        UIGraphicsBeginImageContext(view.bounds.size)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    override func viewWillDisappear(_ animated: Bool) {
         
-        return snapshot
     }
-    
-
 }
 

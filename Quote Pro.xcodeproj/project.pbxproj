@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4902A5BB1FB4E9A0003835E9 /* QuoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902A5BA1FB4E9A0003835E9 /* QuoteListViewController.swift */; };
+		4902A5BD1FB4F140003835E9 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4902A5BC1FB4F140003835E9 /* QuoteTableViewCell.swift */; };
 		49130EED1FB392F300AF4691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EEC1FB392F300AF4691 /* AppDelegate.swift */; };
 		49130EEF1FB392F300AF4691 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */; };
 		49130EF21FB392F300AF4691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF01FB392F300AF4691 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4902A5BA1FB4E9A0003835E9 /* QuoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListViewController.swift; sourceTree = "<group>"; };
+		4902A5BC1FB4F140003835E9 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		49130EE91FB392F300AF4691 /* Quote Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quote Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49130EEC1FB392F300AF4691 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +81,9 @@
 				49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */,
 				49130F061FB39DC900AF4691 /* DownloadProtocols.swift */,
 				49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */,
+				4902A5BA1FB4E9A0003835E9 /* QuoteListViewController.swift */,
 				49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */,
+				4902A5BC1FB4F140003835E9 /* QuoteTableViewCell.swift */,
 				49130EF01FB392F300AF4691 /* Main.storyboard */,
 				49130F0C1FB3F2CC00AF4691 /* QuoteView.swift */,
 				49130F0E1FB3F2E000AF4691 /* QuoteView.xib */,
@@ -165,6 +171,8 @@
 				49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */,
 				49130EEF1FB392F300AF4691 /* QuoteBuilderViewController.swift in Sources */,
 				49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */,
+				4902A5BD1FB4F140003835E9 /* QuoteTableViewCell.swift in Sources */,
+				4902A5BB1FB4E9A0003835E9 /* QuoteListViewController.swift in Sources */,
 				49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */,
 				49130F0B1FB3C0B800AF4691 /* LoremPixelImageGetter.swift in Sources */,
 				49130EFF1FB39B0500AF4691 /* Quote.swift in Sources */,
