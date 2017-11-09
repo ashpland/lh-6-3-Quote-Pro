@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuoteBuilderViewController: UIViewController {
+class QuoteBuilderViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var quoteView: QuoteView!
     let thisQuote = Quote()
@@ -18,6 +18,7 @@ class QuoteBuilderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.delegate = self
         
         
         thisQuote.setNewQuoteAndPhoto {
@@ -41,6 +42,8 @@ class QuoteBuilderViewController: UIViewController {
     }
     
     
+    
+    
     // MARK: Actions
     
     @IBAction func newPhoto(_ sender: UIBarButtonItem) {
@@ -53,6 +56,20 @@ class QuoteBuilderViewController: UIViewController {
         thisQuote.setNewQuote {
             self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
         }
+    }
+    
+    // Back button pressed
+    override func willMove(toParentViewController parent: UIViewController?) {
+        thisQuote.combinedImage = snapshot(of: quoteView)
+    }
+    
+    private func snapshot(of view:UIView) -> UIImage? {
+        UIGraphicsBeginImageContext(view.bounds.size)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return snapshot
     }
     
 
