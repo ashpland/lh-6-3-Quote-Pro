@@ -12,12 +12,8 @@ protocol DataDownloader {
     func downloadDataAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
 }
 
-protocol FileDownloader {
-        func downloadFileAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
-}
-
 
 enum DownloadResponses<Value> {
-    case success(Any)
-    case failure(Error)
+    case success(Data)
+    case failure(String)
 }

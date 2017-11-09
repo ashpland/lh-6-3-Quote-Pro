@@ -14,36 +14,26 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
     
     let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")!
     
-    var jsonDownloader: DataDownloader
+    var dataDownloader: DataDownloader
     
     override init() {
-        jsonDownloader = DownloadBuddy.sharedInstance
+        dataDownloader = DownloadBuddy.sharedInstance
     }
     
     func fetchQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
-        self.jsonDownloader
-            .downloadDataAt(url: apiURL, completion:{
+        self.dataDownloader
+            .downloadDataAt(url: apiURL) {
                 (downloadResponse) -> Void in
                 
-                
-                
                 switch (downloadResponse) {
-                    
                 case .success(let downloadResult):
-                    if let download = downloadResult as? Data {
-                        let newQuote = self.getQuoteFromJSON(rawJSON: download)
-                        completion(newQuote)
-                    }
-                    else {
-                        assertionFailure("Download result isn't Data")
-                        completion(nil)
-                    }
-                    
+                    let newQuote = self.getQuoteFromJSON(rawJSON: downloadResult)
+                    completion(newQuote)
                 case .failure(let error):
-                    assertionFailure(error.localizedDescription)
+                    assertionFailure(error)
                     completion(nil)
                 }
-            })
+            }
     }
     
     private func getQuoteFromJSON(rawJSON: Data) -> QuoteInfo? {

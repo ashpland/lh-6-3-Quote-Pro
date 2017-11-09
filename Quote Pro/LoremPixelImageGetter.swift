@@ -14,43 +14,38 @@ class LoremPixelImageGetter: NSObject, ImageGetterProtocol {
    
     static let sharedInstance = LoremPixelImageGetter()
     
-    let apiURL = URL(string: "http://lorempixel.com/200/300")!
+    let apiURL = URL(string: "https://lorempixel.com/200/300")!
     
-    var fileDownloader: FileDownloader
     var dataDownloader: DataDownloader
     
     override init() {
-        self.fileDownloader = DownloadBuddy.sharedInstance
         self.dataDownloader = DownloadBuddy.sharedInstance
     }
     
     
     func fetchImage(completion: @escaping ((UIImage?) -> Void)) {
-//        
+        self.dataDownloader
+            .downloadDataAt(url: apiURL) {
+                (downloadResponse) -> Void in
+                
+                switch (downloadResponse) {
+                    
+                case .success(let downloadResult):
+                    let newImage = UIImage(data: downloadResult)
+                    completion(newImage)
+                case .failure(let error):
+                    assertionFailure(error)
+                    completion(nil)
+
+                }
+            }
+    
+    
     }
     
-    
-//    func fetchImage(completion: @escaping ((UIImage?) -> Void)) {
-//        self.fileDownloader
-//            .downloadFileAt(url: apiURL, completion:{
-//                (downloadResponse) -> Void in
-//
-//                switch (downloadResponse) {
-//                case .success(let downloadResult):
-//                    if let localURL = downloadResult as? URL {
-//                        let newImage = UIImage(
-//
-//                    }
-//                }
-//
-//                completion(nil)
-//
-//
-//            })
-//
-//
-//    }
-
+ 
     
     
 }
+
+

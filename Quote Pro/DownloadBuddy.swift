@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class DownloadBuddy: NSObject, DataDownloader, FileDownloader {
+class DownloadBuddy: NSObject, DataDownloader {
 
     static let sharedInstance = DownloadBuddy();
     
@@ -26,7 +26,7 @@ class DownloadBuddy: NSObject, DataDownloader, FileDownloader {
             data, response, error in defer { self.dataTask = nil }
             
             if let error = error {
-                completion(DownloadResponses.failure(error))
+                completion(DownloadResponses.failure(error.localizedDescription))
             } else if let data = data,
                 let response = response as? HTTPURLResponse,
                 response.statusCode == 200 {
@@ -36,25 +36,4 @@ class DownloadBuddy: NSObject, DataDownloader, FileDownloader {
         
         dataTask?.resume()
     }
-    
-    
-    func downloadFileAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
-        downloadTask = defaultSession.downloadTask(with: url) {
-            fileLocation, response, error in defer { self.dataTask = nil }
-            
-            if let error = error {
-                completion(DownloadResponses.failure(error))
-            } else if let fileLocation = fileLocation,
-                let response = response as? HTTPURLResponse,
-                response.statusCode == 200 {
-                completion(DownloadResponses.success(fileLocation))
-            }
-        }
-        
-        downloadTask?.resume()
-    }
-    
-    
-    
-    
 }
