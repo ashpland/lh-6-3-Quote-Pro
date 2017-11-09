@@ -21,9 +21,7 @@ class QuoteBuilderViewController: UIViewController {
         
         
         thisQuote.setNewQuoteAndPhoto {
-            DispatchQueue.main.async {
-                self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
-            }
+            self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
         }
         
         
@@ -35,18 +33,26 @@ class QuoteBuilderViewController: UIViewController {
     
     
     private func updateQuoteView(quoteView:QuoteView, quote: Quote) {
-        quoteView.quoteLabel.text = quote.quoteText
-        quoteView.authorLabel.text = quote.quoteAuthor
-        quoteView.photoImageView.image = quote.photo.image
+        DispatchQueue.main.async {
+            quoteView.quoteLabel.text = quote.quoteText
+            quoteView.authorLabel.text = quote.quoteAuthor
+            quoteView.photoImageView.image = quote.photo.image
+        }
     }
     
     
     // MARK: Actions
     
     @IBAction func newPhoto(_ sender: UIBarButtonItem) {
+        thisQuote.setNewPhoto {
+            self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
+        }
     }
     
     @IBAction func newQuote(_ sender: UIBarButtonItem) {
+        thisQuote.setNewQuote {
+            self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
+        }
     }
     
 

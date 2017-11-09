@@ -14,7 +14,7 @@ class LoremPixelImageGetter: NSObject, ImageGetterProtocol {
    
     static let sharedInstance = LoremPixelImageGetter()
     
-    let apiURL = URL(string: "https://lorempixel.com/200/300")!
+    let apiURL = URL(string: "https://lorempixel.com/628/414")!
     
     var dataDownloader: DataDownloader
     
