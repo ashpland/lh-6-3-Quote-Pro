@@ -10,49 +10,75 @@ import UIKit
 
 class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
   
-    let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+    static let sharedInstance = ForismaticQuoteGetter()
     
-    var jsonDownloader: JSONDownloader
+    let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")!
+    
+    var dataDownloader: DataDownloader
     
     override init() {
-        jsonDownloader = DownloadBuddy()
+        dataDownloader = DownloadBuddy.sharedInstance
     }
     
     func fetchQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
-        self.jsonDownloader
-            .downloadJSONAt(url: apiURL!, completion:{
+        self.dataDownloader
+            .downloadDataAt(url: apiURL) {
                 (downloadResponse) -> Void in
                 
                 switch (downloadResponse) {
-                    
                 case .success(let downloadResult):
-                    if let download = downloadResult as? Data {
-                        let newQuote = self.getQuoteFromJSON(rawJSON: download)
-                        completion(newQuote)
-                    }
-                    else {
-                        assertionFailure("Download result isn't Data")
-                        completion(nil)
-                    }
-                    
+                    let newQuote = self.getQuoteFromJSON(rawJSON: downloadResult)
+                    completion(newQuote)
                 case .failure(let error):
-                    assertionFailure(error.localizedDescription)
+                    assertionFailure(error)
                     completion(nil)
                 }
-            })
+            }
     }
+    
+    func fetchMashupQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
+        self.dataDownloader
+            .downloadDataAt(url: apiURL) {
+                (firstDownloadResponse) -> Void in
+                
+                switch (firstDownloadResponse) {
+                case .success(let firstDownloadResult):
+                    print("nice")
+                    if let firstQuote = self.getQuoteFromJSON(rawJSON: firstDownloadResult) {
+                        self.dataDownloader.downloadDataAt(url: self.apiURL, completion: { (secondDownloadResponse) in
+                            switch (secondDownloadResponse) {
+                                
+                            case .success(let secondDownloadResult):
+                                if let secondQuote = self.getQuoteFromJSON(rawJSON: secondDownloadResult) {
+                                    if (!secondQuote.quoteAuthor.isEmpty) {
+                                        let newQuote = QuoteInfo(text: firstQuote.quoteText, author: secondQuote.quoteAuthor)
+                                        completion(newQuote)
+                                    }
+                                }
+                            default:
+                                break
+                            }
+                        })
+                    }
+                default:
+                   break
+                }
+        }
+    }
+    
+    
     
     private func getQuoteFromJSON(rawJSON: Data) -> QuoteInfo? {
         
-        var newQuote = QuoteInfo()
-        
         do {
             if let json = try JSONSerialization.jsonObject(with: rawJSON) as? [String: Any] {
-                if let quoteText = json["quoteText"] as? String {
-                    newQuote.quoteText = quoteText
-                }
-                if let quoteAuthor = json["quoteAuthor"] as? String {
-                    newQuote.quoteAuthor = quoteAuthor
+                if let quoteText = json["quoteText"] as? String,
+                    !quoteText.isEmpty{
+                    
+                    if let quoteAuthor = json["quoteAuthor"] as? String {
+                        let newQuote = QuoteInfo(text: quoteText, author: quoteAuthor)
+                        return newQuote
+                    }
                 }
             }
         } catch {
@@ -60,7 +86,7 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
             return nil
         }
         
-        return newQuote
+        return nil
     }
     
     
