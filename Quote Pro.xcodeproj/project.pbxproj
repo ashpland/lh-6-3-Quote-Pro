@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49130EED1FB392F300AF4691 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EEC1FB392F300AF4691 /* AppDelegate.swift */; };
-		49130EEF1FB392F300AF4691 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EEE1FB392F300AF4691 /* ViewController.swift */; };
+		49130EEF1FB392F300AF4691 /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */; };
 		49130EF21FB392F300AF4691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF01FB392F300AF4691 /* Main.storyboard */; };
 		49130EF41FB392F300AF4691 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF31FB392F300AF4691 /* Assets.xcassets */; };
 		49130EF71FB392F300AF4691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49130EF51FB392F300AF4691 /* LaunchScreen.storyboard */; };
@@ -18,12 +18,14 @@
 		49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F061FB39DC900AF4691 /* DownloadProtocols.swift */; };
 		49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */; };
 		49130F0B1FB3C0B800AF4691 /* LoremPixelImageGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */; };
+		49130F0D1FB3F2CC00AF4691 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49130F0C1FB3F2CC00AF4691 /* QuoteView.swift */; };
+		49130F0F1FB3F2E000AF4691 /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49130F0E1FB3F2E000AF4691 /* QuoteView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		49130EE91FB392F300AF4691 /* Quote Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quote Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49130EEC1FB392F300AF4691 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49130EEE1FB392F300AF4691 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
 		49130EF11FB392F300AF4691 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49130EF31FB392F300AF4691 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49130EF61FB392F300AF4691 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +36,8 @@
 		49130F061FB39DC900AF4691 /* DownloadProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProtocols.swift; sourceTree = "<group>"; };
 		49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBuddy.swift; sourceTree = "<group>"; };
 		49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremPixelImageGetter.swift; sourceTree = "<group>"; };
+		49130F0C1FB3F2CC00AF4691 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		49130F0E1FB3F2E000AF4691 /* QuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +77,10 @@
 				49130F0A1FB3C0B800AF4691 /* LoremPixelImageGetter.swift */,
 				49130F061FB39DC900AF4691 /* DownloadProtocols.swift */,
 				49130F081FB3A13F00AF4691 /* DownloadBuddy.swift */,
-				49130EEE1FB392F300AF4691 /* ViewController.swift */,
+				49130EEE1FB392F300AF4691 /* QuoteBuilderViewController.swift */,
 				49130EF01FB392F300AF4691 /* Main.storyboard */,
+				49130F0C1FB3F2CC00AF4691 /* QuoteView.swift */,
+				49130F0E1FB3F2E000AF4691 /* QuoteView.xib */,
 				49130EF31FB392F300AF4691 /* Assets.xcassets */,
 				49130EF51FB392F300AF4691 /* LaunchScreen.storyboard */,
 				49130EF81FB392F300AF4691 /* Info.plist */,
@@ -144,6 +150,7 @@
 				49130EF71FB392F300AF4691 /* LaunchScreen.storyboard in Resources */,
 				49130EF41FB392F300AF4691 /* Assets.xcassets in Resources */,
 				49130EF21FB392F300AF4691 /* Main.storyboard in Resources */,
+				49130F0F1FB3F2E000AF4691 /* QuoteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,11 +163,12 @@
 			files = (
 				49130F011FB39B7500AF4691 /* Photo.swift in Sources */,
 				49130F071FB39DC900AF4691 /* DownloadProtocols.swift in Sources */,
-				49130EEF1FB392F300AF4691 /* ViewController.swift in Sources */,
+				49130EEF1FB392F300AF4691 /* QuoteBuilderViewController.swift in Sources */,
 				49130F031FB39CC500AF4691 /* ForismaticQuoteGetter.swift in Sources */,
 				49130F091FB3A13F00AF4691 /* DownloadBuddy.swift in Sources */,
 				49130F0B1FB3C0B800AF4691 /* LoremPixelImageGetter.swift in Sources */,
 				49130EFF1FB39B0500AF4691 /* Quote.swift in Sources */,
+				49130F0D1FB3F2CC00AF4691 /* QuoteView.swift in Sources */,
 				49130EED1FB392F300AF4691 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
