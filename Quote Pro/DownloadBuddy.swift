@@ -10,15 +10,17 @@ import UIKit
 
 
 
-class DownloadBuddy: NSObject, JSONDownloader, FileDownloader {
+class DownloadBuddy: NSObject, DataDownloader, FileDownloader {
 
+    static let sharedInstance = DownloadBuddy();
+    
     let defaultSession = URLSession(configuration: .default)
     
     var dataTask: URLSessionDataTask?
     var downloadTask: URLSessionDownloadTask?
     var errorMessage: String?
 
-    func downloadJSONAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
+    func downloadDataAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void) {
 
         dataTask = defaultSession.dataTask(with: url) {
             data, response, error in defer { self.dataTask = nil }

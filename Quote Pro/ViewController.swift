@@ -18,11 +18,13 @@ class ViewController: UIViewController {
         
         let testQuote = Quote()
         
-        testQuote.setNewQuote { (newQuoteSet) in
-            if (newQuoteSet) {
-                print("Quote: \(testQuote.quoteText) \nAuthor: \(testQuote.quoteAuthor)")
-            }
+        testQuote.setNewQuote {
+            print("Quote: \(testQuote.quoteText) \nAuthor: \(testQuote.quoteAuthor)")
         }
+        
+        testQuote.setNewPhoto(completion: {
+            print("Photo completion")
+        })
         
         
     }

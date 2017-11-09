@@ -10,18 +10,22 @@ import UIKit
 
 class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
   
-    let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+    static let sharedInstance = ForismaticQuoteGetter()
     
-    var jsonDownloader: JSONDownloader
+    let apiURL = URL(string: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")!
+    
+    var jsonDownloader: DataDownloader
     
     override init() {
-        jsonDownloader = DownloadBuddy()
+        jsonDownloader = DownloadBuddy.sharedInstance
     }
     
     func fetchQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
         self.jsonDownloader
-            .downloadJSONAt(url: apiURL!, completion:{
+            .downloadDataAt(url: apiURL, completion:{
                 (downloadResponse) -> Void in
+                
+                
                 
                 switch (downloadResponse) {
                     

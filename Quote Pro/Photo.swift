@@ -10,4 +10,23 @@ import UIKit
 
 class Photo: NSObject {
 
+    var image: UIImage?
+    
+    var imageGetterDelegate : ImageGetterProtocol
+    
+    override init() {
+        self.imageGetterDelegate = LoremPixelImageGetter.sharedInstance
+    }
+    
+    func setNewRandomImage(completion: @escaping () -> Void) {
+        self.imageGetterDelegate.fetchImage { (newImage) in
+            self.image = newImage
+        }
+    }
 }
+
+protocol ImageGetterProtocol {
+    func fetchImage(completion: @escaping ((UIImage?) -> Void))
+}
+    
+

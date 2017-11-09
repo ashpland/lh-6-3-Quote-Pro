@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol JSONDownloader {
-    func downloadJSONAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
+protocol DataDownloader {
+    func downloadDataAt(url: URL, completion: @escaping (DownloadResponses<Any>) -> Void)
 }
 
 protocol FileDownloader {
