@@ -22,11 +22,28 @@ class Quote: NSObject {
         photo = Photo()
     }
     
+    func setNewQuoteAndPhoto(completion: @escaping () -> Void) {
+        self.setNewQuote {
+            self.setNewPhoto {
+                completion()
+            }
+        }
+    }
+    
     func setNewQuote(completion: @escaping () -> Void ) {
         self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
-            self.quoteText = quoteInfo?.quoteText ?? ""
-            self.quoteAuthor = quoteInfo?.quoteAuthor ?? ""
-            completion()
+            if let quoteInfo = quoteInfo {
+                self.quoteText = quoteInfo.quoteText
+                self.quoteAuthor = quoteInfo.quoteAuthor ?? ""
+                completion()
+            }
+            
+            // If quotes are failing, put error handling in here
+            else {
+                self.setNewQuote {
+                    completion()
+                }
+            }
         }
     }
     
@@ -44,6 +61,11 @@ protocol QuoteGetterProtocol {
 }
 
 struct QuoteInfo {
-    var quoteText: String?
+    var quoteText: String
     var quoteAuthor: String?
+    
+    init(text: String, author: String?) {
+        self.quoteText = text
+        self.quoteAuthor = author ?? ""
+    }
 }

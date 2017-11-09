@@ -21,6 +21,7 @@ class Photo: NSObject {
     func setNewRandomImage(completion: @escaping () -> Void) {
         self.imageGetterDelegate.fetchImage { (newImage) in
             self.image = newImage
+            completion()
         }
     }
 }

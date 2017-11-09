@@ -38,23 +38,24 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
     
     private func getQuoteFromJSON(rawJSON: Data) -> QuoteInfo? {
         
-        var newQuote = QuoteInfo()
-        
         do {
             if let json = try JSONSerialization.jsonObject(with: rawJSON) as? [String: Any] {
-                if let quoteText = json["quoteText"] as? String {
-                    newQuote.quoteText = quoteText
+                if let quoteText = json["quoteText"] as? String,
+                    !quoteText.isEmpty{
+                    let quoteAuthor = json["quoteAuthor"] as? String
+                    
+                    let newQuote = QuoteInfo(text: quoteText, author: quoteAuthor)
+                    
+                    return newQuote
                 }
-                if let quoteAuthor = json["quoteAuthor"] as? String {
-                    newQuote.quoteAuthor = quoteAuthor
-                }
+                
             }
         } catch {
             print("Error deserializing JSON: \(error)")
             return nil
         }
         
-        return newQuote
+        return nil
     }
     
     
