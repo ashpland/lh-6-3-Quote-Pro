@@ -34,7 +34,9 @@ class Quote: NSObject {
         self.quoteGetterDelegate.fetchQuote { (quoteInfo) in
             if let quoteInfo = quoteInfo {
                 self.quoteText = quoteInfo.quoteText
-                self.quoteAuthor = quoteInfo.quoteAuthor ?? ""
+                
+                // If there isn't a quote author, set it to Ke$ha 'cause that's great
+                self.quoteAuthor = quoteInfo.quoteAuthor.isEmpty ? "Ke$ha" : quoteInfo.quoteAuthor
                 completion()
             }
             
@@ -58,14 +60,21 @@ class Quote: NSObject {
 
 protocol QuoteGetterProtocol {    
     func fetchQuote(completion: @escaping ((_ quoteInfo: QuoteInfo?) -> Void))
+    func fetchMashupQuote(completion: @escaping ((_ quoteInfo: QuoteInfo?) -> Void))
 }
+
+//extension QuoteGetterProtocol {
+//    func fetchMashupQuote(completion: @escaping ((_ quoteInfo: QuoteInfo?) -> Void)) {
+//        self.fetchQuote(completion: $0)
+//    }
+//}
 
 struct QuoteInfo {
     var quoteText: String
-    var quoteAuthor: String?
+    var quoteAuthor: String
     
-    init(text: String, author: String?) {
+    init(text: String, author: String) {
         self.quoteText = text
-        self.quoteAuthor = author ?? ""
+        self.quoteAuthor = author
     }
 }

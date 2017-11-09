@@ -36,19 +36,50 @@ class ForismaticQuoteGetter: NSObject, QuoteGetterProtocol {
             }
     }
     
+    func fetchMashupQuote(completion: @escaping ((QuoteInfo?) -> Void)) {
+        self.dataDownloader
+            .downloadDataAt(url: apiURL) {
+                (firstDownloadResponse) -> Void in
+                
+                switch (firstDownloadResponse) {
+                case .success(let firstDownloadResult):
+                    print("nice")
+                    if let firstQuote = self.getQuoteFromJSON(rawJSON: firstDownloadResult) {
+                        self.dataDownloader.downloadDataAt(url: self.apiURL, completion: { (secondDownloadResponse) in
+                            switch (secondDownloadResponse) {
+                                
+                            case .success(let secondDownloadResult):
+                                if let secondQuote = self.getQuoteFromJSON(rawJSON: secondDownloadResult) {
+                                    if (!secondQuote.quoteAuthor.isEmpty) {
+                                        let newQuote = QuoteInfo(text: firstQuote.quoteText, author: secondQuote.quoteAuthor)
+                                        completion(newQuote)
+                                    }
+                                }
+                            default:
+                                break
+                            }
+                        })
+                    }
+                default:
+                   break
+                }
+        }
+    }
+    
+    
+    
     private func getQuoteFromJSON(rawJSON: Data) -> QuoteInfo? {
         
         do {
             if let json = try JSONSerialization.jsonObject(with: rawJSON) as? [String: Any] {
                 if let quoteText = json["quoteText"] as? String,
                     !quoteText.isEmpty{
-                    let quoteAuthor = json["quoteAuthor"] as? String
                     
-                    let newQuote = QuoteInfo(text: quoteText, author: quoteAuthor)
-                    
-                    return newQuote
+                    if let quoteAuthor = json["quoteAuthor"] as? String {
+                        let newQuote = QuoteInfo(text: quoteText, author: quoteAuthor)
+                        return newQuote
+                    }
                 }
-                
             }
         } catch {
             print("Error deserializing JSON: \(error)")
