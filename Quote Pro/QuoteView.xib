@@ -10,9 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuoteView" customModule="Quote_Pro" customModuleProvider="target">
+            <connections>
+                <outlet property="authorLabel" destination="9gU-ZE-slW" id="r15-Wp-eqS"/>
+                <outlet property="photoImageView" destination="B17-L5-PLW" id="CKP-1z-oe7"/>
+                <outlet property="quoteLabel" destination="QZX-85-RWF" id="VgW-Q9-I1y"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuoteView" customModule="Quote_Pro" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -41,7 +47,6 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="1pB-Te-fMw" firstAttribute="centerY" secondItem="B17-L5-PLW" secondAttribute="centerY" id="1td-bR-osx"/>
                 <constraint firstItem="B17-L5-PLW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="B6G-6g-4ul"/>
@@ -52,11 +57,6 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1pB-Te-fMw" secondAttribute="trailing" constant="16" id="nZS-Vx-OUw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="authorLabel" destination="9gU-ZE-slW" id="n5Y-d9-W03"/>
-                <outlet property="photoImageView" destination="B17-L5-PLW" id="VqD-HV-iva"/>
-                <outlet property="quoteLabel" destination="QZX-85-RWF" id="IMq-5H-TGa"/>
-            </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
