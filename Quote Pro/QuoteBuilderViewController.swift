@@ -20,9 +20,11 @@ class QuoteBuilderViewController: UIViewController {
         
         
         
-//        thisQuote.setNewQuoteAndPhoto {
-//            <#code#>
-//        }
+        thisQuote.setNewQuoteAndPhoto {
+            DispatchQueue.main.async {
+                self.updateQuoteView(quoteView: self.quoteView, quote: self.thisQuote)
+            }
+        }
         
         
         
@@ -32,8 +34,10 @@ class QuoteBuilderViewController: UIViewController {
     }
     
     
-    private func updateQuoteView(_:QuoteView, withQuote: Quote) {
-        
+    private func updateQuoteView(quoteView:QuoteView, quote: Quote) {
+        quoteView.quoteLabel.text = quote.quoteText
+        quoteView.authorLabel.text = quote.quoteAuthor
+        quoteView.photoImageView.image = quote.photo.image
     }
     
     
