@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,28 +80,92 @@
             </objects>
             <point key="canvasLocation" x="-1290" y="32"/>
         </scene>
-        <!--View Controller-->
+        <!--Quote List View Controller-->
         <scene sceneID="eLl-z6-u9z">
             <objects>
-                <viewController id="KUS-eP-V2y" sceneMemberID="viewController">
+                <viewController id="KUS-eP-V2y" customClass="QuoteListViewController" customModule="Quote_Pro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g84-6W-Pf6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oEo-aJ-w20">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" id="WlB-pf-Fwt" customClass="QuoteTableViewCell" customModule="Quote_Pro" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WlB-pf-Fwt" id="hsl-j1-mAI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="199.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfp-Cb-cbb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="199.66666666666666"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="A85-mY-DXL">
+                                                    <rect key="frame" x="139" y="11" width="260" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="834-lc-y7C">
+                                                    <rect key="frame" x="139" y="62" width="260" height="127"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zfp-Cb-cbb" firstAttribute="leading" secondItem="hsl-j1-mAI" secondAttribute="leading" id="0nY-XB-lJR"/>
+                                                <constraint firstItem="Zfp-Cb-cbb" firstAttribute="centerY" secondItem="hsl-j1-mAI" secondAttribute="centerY" id="5An-Km-XCc"/>
+                                                <constraint firstItem="Zfp-Cb-cbb" firstAttribute="height" secondItem="hsl-j1-mAI" secondAttribute="height" id="Wkm-07-8ZO"/>
+                                                <constraint firstItem="A85-mY-DXL" firstAttribute="top" secondItem="hsl-j1-mAI" secondAttribute="top" constant="11" id="ZB6-7T-RIw"/>
+                                                <constraint firstItem="A85-mY-DXL" firstAttribute="leading" secondItem="Zfp-Cb-cbb" secondAttribute="trailing" constant="7.3333333333333428" id="ZdY-8b-jhZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="A85-mY-DXL" secondAttribute="trailing" constant="15" id="b3r-yA-rQp"/>
+                                                <constraint firstAttribute="bottom" secondItem="834-lc-y7C" secondAttribute="bottom" constant="10.666666666666657" id="bbf-pF-u3q"/>
+                                                <constraint firstItem="834-lc-y7C" firstAttribute="leading" secondItem="Zfp-Cb-cbb" secondAttribute="trailing" constant="7.3333333333333428" id="dOH-xy-36r"/>
+                                                <constraint firstItem="834-lc-y7C" firstAttribute="top" secondItem="A85-mY-DXL" secondAttribute="bottom" constant="8" id="gGf-cb-oU8"/>
+                                                <constraint firstAttribute="trailing" secondItem="834-lc-y7C" secondAttribute="trailing" constant="15" id="lWD-25-Azl"/>
+                                                <constraint firstItem="Zfp-Cb-cbb" firstAttribute="width" secondItem="hsl-j1-mAI" secondAttribute="height" multiplier="414:628" id="uNT-Lo-B3I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="quoteAuthor" destination="A85-mY-DXL" id="1kT-dD-oNR"/>
+                                            <outlet property="quoteImage" destination="Zfp-Cb-cbb" id="rFd-CR-Fds"/>
+                                            <outlet property="quoteText" destination="834-lc-y7C" id="N6r-PP-oLj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KUS-eP-V2y" id="Zip-1j-Gtb"/>
+                                    <outlet property="delegate" destination="KUS-eP-V2y" id="Nqm-O3-2UW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DFh-FN-AbX" firstAttribute="bottom" secondItem="oEo-aJ-w20" secondAttribute="bottom" id="KPa-11-k4c"/>
+                            <constraint firstItem="oEo-aJ-w20" firstAttribute="leading" secondItem="DFh-FN-AbX" secondAttribute="leading" id="bbd-rg-YTS"/>
+                            <constraint firstItem="oEo-aJ-w20" firstAttribute="top" secondItem="DFh-FN-AbX" secondAttribute="top" id="wZB-fw-rLT"/>
+                            <constraint firstItem="DFh-FN-AbX" firstAttribute="trailing" secondItem="oEo-aJ-w20" secondAttribute="trailing" id="x2E-k4-vpv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DFh-FN-AbX"/>
                     </view>
                     <navigationItem key="navigationItem" id="rS9-4h-tsl">
-                        <barButtonItem key="backBarButtonItem" title="Save" id="oc3-iI-Owg"/>
+                        <barButtonItem key="backBarButtonItem" title="Save" id="4le-9q-f23"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="87c-PY-yrc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="ZSV-qj-xro"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="NewQuoteSegue" id="ZSV-qj-xro"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="oEo-aJ-w20" id="tSF-nd-RAR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOO-XG-fAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="32"/>
+            <point key="canvasLocation" x="-488.40579710144931" y="31.793478260869566"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,7 @@ class Quote: NSObject {
     var quoteText : String
     var quoteAuthor : String
     var photo : Photo
+    var combinedImage : UIImage?
     
     var quoteGetterDelegate : QuoteGetterProtocol
     
